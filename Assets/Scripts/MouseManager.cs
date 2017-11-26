@@ -17,8 +17,6 @@ public class MouseManager : MonoBehaviour {
 
 			GameObject ourHitObject = hitInfo.collider.transform.gameObject;
 
-			Debug.Log (ourHitObject.name);
-
 			if (Input.GetMouseButton (0)) {
 			
 				MeshRenderer mr = ourHitObject.GetComponentInChildren<MeshRenderer> ();
