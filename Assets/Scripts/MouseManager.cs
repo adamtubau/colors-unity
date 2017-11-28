@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class MouseManager : MonoBehaviour {
 
-
-	
-
 	void Update () {
 
 		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
@@ -17,15 +14,24 @@ public class MouseManager : MonoBehaviour {
 
 			GameObject ourHitObject = hitInfo.collider.transform.gameObject;
 
-			if (Input.GetMouseButton (0)) {
-			
+			if (Input.GetMouseButtonDown (0) && Pigment.pigment > 0) {
+
 				MeshRenderer mr = ourHitObject.GetComponentInChildren<MeshRenderer> ();
 
-				mr.material.color = Color.red;
+				if (mr.material.color == Color.red) {
 
+					mr.material.color = Color.black;
+
+				}
+
+				else {
+
+					mr.material.color = Color.red;
+				}
+				Pigment.pigment--;
 			}
 
-		}
 		
+		}
 	}
 }

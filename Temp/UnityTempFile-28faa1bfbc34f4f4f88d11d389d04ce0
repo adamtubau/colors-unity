@@ -88,6 +88,8 @@
 'Assets/Hex.cs'
 'Assets/Scripts/Map.cs'
 'Assets/Scripts/MouseManager.cs'
+'Assets/Scripts/Pigment.cs'
+'Assets/Scripts/TileType.cs'
 'Assets/Scripts/ball.cs'
 'Assets/Scripts/collisions/Blue.cs'
 'Assets/Scripts/collisions/Cyan.cs'

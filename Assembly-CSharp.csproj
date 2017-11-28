@@ -49,6 +49,8 @@
      <Compile Include="Assets\Hex.cs" />
      <Compile Include="Assets\Scripts\Map.cs" />
      <Compile Include="Assets\Scripts\MouseManager.cs" />
+     <Compile Include="Assets\Scripts\Pigment.cs" />
+     <Compile Include="Assets\Scripts\TileType.cs" />
      <Compile Include="Assets\Scripts\ball.cs" />
      <Compile Include="Assets\Scripts\collisions\Blue.cs" />
      <Compile Include="Assets\Scripts\collisions\Cyan.cs" />

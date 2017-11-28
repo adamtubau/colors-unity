@@ -5,15 +5,19 @@ using UnityEngine;
 public class Map : MonoBehaviour {
 
 	public GameObject hexprefab;
-
 	//size of the map
-	int width = 20;
-	int height = 20;
+	int width = 10;
+	int height = 10;
 
 	float xOffset = 0.882f;
 	float zOffset = 0.764f;
 
+	public TileType[] tileTypes;
+	int[,] HexTiles;
+
 	void Start () {
+
+		HexTiles = new int[width, height];
 
 		for (int x = 0; x < width; x++) {
 			for (int y = 0; y < height; y++) {
@@ -25,6 +29,8 @@ public class Map : MonoBehaviour {
 					xPos += xOffset/2;
 				}
 
+				int xCoordenates = x;
+				int yCoordenates = y;
 				//Instantiate hex
 				GameObject Hex_go = (GameObject)Instantiate (hexprefab, new Vector3(xPos,0,y*zOffset), Quaternion.identity); 
 
@@ -40,6 +46,7 @@ public class Map : MonoBehaviour {
 				//Set x and y so the script "FindNeighbours" can know its coordenates
 				Hex_go.GetComponentInParent<Hex> ().x = x;
 				Hex_go.GetComponentInParent<Hex> ().y = y;
+
 			}
 		}
 

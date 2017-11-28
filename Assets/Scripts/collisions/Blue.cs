@@ -25,12 +25,18 @@ public class Blue : MonoBehaviour {
 
 	}
 
+
+	//si nom. "minion" + gameobject == nom.colider {
+
+
+
 	void OnCollisionEnter (Collision col)
 	{
 		if(col.collider.name == "minionred")
 		{
+			
 			rend.material.color = Color.white;
-			Destroy (minionred);
+			Destroy(col.gameObject);
 			//Instantiate minionmagenta
 		}
 		if(col.collider.name == "miniongreen")

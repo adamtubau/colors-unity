@@ -85,8 +85,10 @@
 -define:UNITY_EDITOR_OSX
 -define:ENABLE_NATIVE_ARRAY_CHECKS
 -define:UNITY_TEAM_LICENSE
+'Assets/Hex.cs'
 'Assets/Scripts/Map.cs'
 'Assets/Scripts/MouseManager.cs'
+'Assets/Scripts/Pigment.cs'
 'Assets/Scripts/ball.cs'
 'Assets/Scripts/collisions/Blue.cs'
 'Assets/Scripts/collisions/Cyan.cs'
