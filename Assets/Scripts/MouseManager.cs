@@ -17,8 +17,9 @@ public class MouseManager : MonoBehaviour {
 
 			GameObject ourHitObject = hitInfo.collider.transform.gameObject;
 
-			if (Input.GetMouseButtonDown (0) && Pigment.pigment > 0 && HexInfo.clickable == true) {
+			if (Input.GetMouseButtonDown (0) && Pigment.pigment > 0) {
 
+				//Debug.Log (HexInfo.HexPositionX[]);
 				MeshRenderer mr = ourHitObject.GetComponentInChildren<MeshRenderer> ();
 
 				//HexInfo.x = ourHitObject.transform.position.x;
@@ -38,8 +39,8 @@ public class MouseManager : MonoBehaviour {
 				}
 				Pigment.pigment--;
 			}
-
-		
 		}
 	}
+
+
 }

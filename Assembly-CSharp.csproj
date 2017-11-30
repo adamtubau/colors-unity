@@ -51,7 +51,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\ball.cs" />
      <Compile Include="Assets\Scripts\collisions\Blue.cs" />
      <Compile Include="Assets\Scripts\collisions\Cyan.cs" />
      <Compile Include="Assets\Scripts\collisions\Green.cs" />
@@ -63,7 +62,6 @@
      <Compile Include="Assets\Scripts\Map.cs" />
      <Compile Include="Assets\Scripts\MouseManager.cs" />
      <Compile Include="Assets\Scripts\Pigment.cs" />
-     <Compile Include="Assets\Scripts\TileType.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

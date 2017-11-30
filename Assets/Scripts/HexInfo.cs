@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class HexInfo : MonoBehaviour {
 
-	public float x;
-	public float y;
+	public static int[,] HexPositionX;
+	public static int[,] HexPositionY;
+
+	public static bool[,] Nucli;
+	public static bool[,] MultiplesColors;
+
+	void Start(){
 
 
-	public static bool clickable = true;
 
-
+	}
 }

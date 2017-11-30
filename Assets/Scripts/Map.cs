@@ -15,14 +15,12 @@ public class Map : MonoBehaviour {
 	float xOffset = 0.882f;
 	float zOffset = 0.764f;
 
-	bool clickable =false;
-
-	public TileType[] tileTypes;
-	int[,] HexTiles;
-
 	void Start () {
 
-		HexTiles = new int[width, height];
+		HexInfo.HexPositionX = new int[width, height];
+		HexInfo.HexPositionY = new int[width, height];
+
+		HexInfo.Nucli [3, 3] = true;
 
 		for (int x = 0; x < width; x++) {
 			for (int y = 0; y < height; y++) {
@@ -37,12 +35,14 @@ public class Map : MonoBehaviour {
 				//Instantiate hex
 				GameObject Hex_go = (GameObject)Instantiate (hexprefab, new Vector3(xPos,0,y*zOffset), Quaternion.identity); 
 
-				//HexI.x = xPos;
-				//HexI.y = y * zOffset;
-				HexInfo HexI = Hex_go.GetComponent<HexInfo>();
-				HexI.x = xPos;
-				HexI.y = y * zOffset;
+				//inicialitzar HexInfo
 
+
+				HexInfo.Nucli[x,y] = false;
+				HexInfo.MultiplesColors[x,y] = false;
+
+				HexInfo.HexPositionX [x, y] = xPos;
+				HexInfo.HexPositionY [x, y] = y * zOffset;
 
 				//Rename hexes with coordenate names
 				Hex_go.name = "Hex_" + x + "_" + y;
