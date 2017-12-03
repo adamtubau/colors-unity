@@ -5,7 +5,8 @@ using UnityEngine;
 public class MouseManager : MonoBehaviour {
 
 	public GameObject bola;
-
+	int xHexPos;
+	int yHexPos;
 
 	void Update () {
 
@@ -17,33 +18,102 @@ public class MouseManager : MonoBehaviour {
 
 			GameObject ourHitObject = hitInfo.collider.transform.gameObject;
 
-			if (Input.GetMouseButtonDown (0) && Pigment.pigment > 0 /*&&neighbourOf()*/) {
 
-				MeshRenderer mr = ourHitObject.GetComponentInChildren<MeshRenderer> ();
+			if (Input.GetMouseButtonDown (0) && Pigment.pigment > 0) {
 
-				//bola.transform.position = new Vector3 (ourHitObject.transform.position.x, 0.3f ,ourHitObject.transform.position.z);
+				HexInfo HexInfoObject = ourHitObject.GetComponentInParent<HexInfo> ();
 
-				if (mr.material.color == Color.red) {
+				if(HexInfoObject.Clickable == true){
+					
+					MeshRenderer mr = ourHitObject.GetComponentInChildren<MeshRenderer> ();
 
-					mr.material.color = Color.black;
+					//bola.transform.position = new Vector3 (ourHitObject.transform.position.x, 0.3f ,ourHitObject.transform.position.z);
 
+					if (ColorHUD.ColorsSelected == 'C') {
+					
+						ColorsChangeCyan (mr, HexInfoObject);
+						Pigment.pigment--;
+
+					} else if (ColorHUD.ColorsSelected == 'M') {
+					
+						ColorsChangeMagenta (mr, HexInfoObject);
+						Pigment.pigment--;
+
+					} else if (ColorHUD.ColorsSelected == 'Y') {
+					
+						ColorsChangeYellow (mr, HexInfoObject);
+						Pigment.pigment--;
+					}
+
+				
 				}
-
-				else {
-
-					mr.material.color = Color.red;
-				}
-				Pigment.pigment--;
 			}
 		}
 	}
 
-	void neighbourOf(int x, int y){
-	
-	//vei de nucli
+	void ColorsChangeCyan(MeshRenderer mr, HexInfo HexColors){
 
-	//vei de multiples colors
+		if (mr.material.color == Color.white) {
+		
+			mr.material.color = Color.cyan;
+			HexColors.HexColor = Color.cyan
+
+		}
+		else if (mr.material.color == Color.magenta) {
+
+			mr.material.color = Color.blue;
+			HexColors.HexColor = Color.blue
+
+		}
+		else if (mr.material.color == Color.yellow) {
+
+			mr.material.color = Color.green;
+			HexColors.HexColor = Color.green
+
+		}
+
+	}
+	void ColorsChangeMagenta(MeshRenderer mr , HexInfo HexColors){
+	
+		if (mr.material.color == Color.white) {
+
+			mr.material.color = Color.magenta;
+
+		}
+		else if (mr.material.color == Color.cyan) {
+
+			mr.material.color = Color.blue;
+
+		}
+		else if (mr.material.color == Color.yellow) {
+
+			mr.material.color = Color.red;
+
+		}
+
 	
 	}
+	void ColorsChangeYellow(MeshRenderer mr , HexInfo HexColors){
+	
+	
+		if (mr.material.color == Color.white) {
+
+			mr.material.color = Color.yellow;
+
+		}
+		else if (mr.material.color == Color.cyan) {
+
+			mr.material.color = Color.green;
+
+		}
+		else if (mr.material.color == Color.magenta) {
+
+			mr.material.color = Color.red;
+
+		}
+	
+	}
+
+
 
 }

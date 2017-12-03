@@ -5,7 +5,7 @@ using UnityEngine;
 public class Pigment: MonoBehaviour{
 
 
-	public static int pigment = 10;
+	public static int pigment = 100;
 
 
 }

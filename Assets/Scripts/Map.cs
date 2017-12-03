@@ -10,18 +10,31 @@ public class Map : MonoBehaviour {
 
 	public GameObject hexprefab;
 	//size of the map
-	int width = 20;
-	int height = 20;
+	public static int width = 12;
+	public static int height = 12;
 
 	float xOffset = 0.882f;
 	float zOffset = 0.764f;
 
+    [System.Serializable]
+    public class HexLine
+    {
+        public HexInfo[] columns;
+    }
+
+    public HexLine[] hexLines;
+
 	void Start () {
 
-
-		HexInfo[,] hexInfo = new HexInfo[width, height];
+        hexLines = new HexLine[height];
+        for (int i = 0; i < height; i ++)
+        {
+            hexLines[i] = new HexLine();
+            hexLines[i].columns = new HexInfo[width];
+        }
 
 		for (int x = 0; x < width; x++) {
+
 			for (int y = 0; y < height; y++) {
 
 				float xPos = x * xOffset;
@@ -30,21 +43,25 @@ public class Map : MonoBehaviour {
 				{
 					xPos += xOffset/2;
 				}
-					
+
 				//Instantiate hex
 				GameObject Hex_go = (GameObject)Instantiate (hexprefab, new Vector3(xPos,0,y*zOffset), Quaternion.identity); 
 
-				Hex_go.GetComponent<HexInfo> ().x = x;
-				Hex_go.GetComponent<HexInfo> ().y = y;
+				HexInfo hexInfo = Hex_go.GetComponent<HexInfo> ();
+				hexInfo.x = x;
+				hexInfo.y = y;
+				hexInfo.Nucli = false;
+				hexInfo.MultiplesColors = 0;
+				hexInfo.Clickable = false;
+                hexInfo.map = this;
+				             
+                hexLines[y].columns[x] = hexInfo;
 
-				Hex_go.GetComponent<HexInfo> ().Nucli = false;
-				Hex_go.GetComponent<HexInfo> ().MultiplesColors = false;
+                //Aray out of range!!!!	
+                //Neighbours (Hex_go);
 
-				//Aray out of range!!!!	
-				//Neighbours (Hex_go);
-				
-				//Rename hexes with coordenate names
-				Hex_go.name = "Hex_" + x + "_" + y;
+                //Rename hexes with coordenate names
+                Hex_go.name = "Hex_" + x + "_" + y;
 
 				//Group hexes in a GameObject parent called "Hex"
 				Hex_go.transform.SetParent (this.transform);
@@ -54,7 +71,7 @@ public class Map : MonoBehaviour {
 		}
 	}
 
-	void Neighbours(GameObject Hex){
+	/*void Neighbours(GameObject Hex){
 
 		int x = Hex.GetComponent<HexInfo> ().x;
 		int y = Hex.GetComponent<HexInfo> ().y;
@@ -79,6 +96,6 @@ public class Map : MonoBehaviour {
 			Hex.GetComponent<HexInfo>().HexNeighbours[5] = GameObject.Find ("Hex_" + x + "_" + (y - 1));
 			Hex.GetComponent<HexInfo>().HexNeighbours[4] =  GameObject.Find ("Hex_" + (x + 1) + "_" + (y - 1));
 		}
-	}
+	}*/
 
 }
