@@ -56,19 +56,19 @@ public class MouseManager : MonoBehaviour {
 		if (mr.material.color == Color.white) {
 		
 			mr.material.color = Color.cyan;
-			HexColors.HexColor = Color.cyan
+			HexColors.HexColor = Color.cyan;
 
 		}
 		else if (mr.material.color == Color.magenta) {
 
 			mr.material.color = Color.blue;
-			HexColors.HexColor = Color.blue
+			HexColors.HexColor = Color.blue;
 
 		}
 		else if (mr.material.color == Color.yellow) {
 
 			mr.material.color = Color.green;
-			HexColors.HexColor = Color.green
+			HexColors.HexColor = Color.green;
 
 		}
 

@@ -9,9 +9,12 @@ public class Map : MonoBehaviour {
 	//public HexInfo HexI;
 
 	public GameObject hexprefab;
+	//public Texture2D SandTexture;
 	//size of the map
-	public static int width = 12;
-	public static int height = 12;
+
+	//Ha de ser parell (width i heith) SEMPRE!!
+	public static int width = 10;
+	public static int height = 6;
 
 	float xOffset = 0.882f;
 	float zOffset = 0.764f;
@@ -25,6 +28,8 @@ public class Map : MonoBehaviour {
     public HexLine[] hexLines;
 
 	void Start () {
+
+
 
         hexLines = new HexLine[height];
         for (int i = 0; i < height; i ++)
@@ -51,7 +56,7 @@ public class Map : MonoBehaviour {
 				hexInfo.x = x;
 				hexInfo.y = y;
 				hexInfo.Nucli = false;
-				hexInfo.MultiplesColors = 0;
+				hexInfo.ColorDensity = 0;
 				hexInfo.Clickable = false;
                 hexInfo.map = this;
 				             
@@ -69,6 +74,8 @@ public class Map : MonoBehaviour {
 				Hex_go.isStatic = true;
 			}
 		}
+
+
 	}
 
 	/*void Neighbours(GameObject Hex){

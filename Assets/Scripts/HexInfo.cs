@@ -9,7 +9,7 @@ public class HexInfo : MonoBehaviour {
 	public int y;
 
 	public bool Nucli=true;
-	public int MultiplesColors;
+	public int ColorDensity;
 	public bool Clickable;
 
 	public Color HexColor;
@@ -28,11 +28,11 @@ public class HexInfo : MonoBehaviour {
 		for (int i = (int)NeighbourPosition.Left; i < (int)NeighbourPosition.NumPositions; i++) {
 			HexInfo neighbour = GetNeighbourByPosition ((NeighbourPosition)i);
 
-			Debug.Log(x + " " + y + " " + neighbour);
+			//Debug.Log(x + " " + y + " " + neighbour);
 
 			if (neighbour != null) {
 
-				if (neighbour.Nucli == true || neighbour.MultiplesColors > 1) {
+				if (neighbour.Nucli == true || neighbour.ColorDensity > 1) {
 					Clickable = true;
 
 				}
